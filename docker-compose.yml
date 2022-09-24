@@ -20,7 +20,7 @@ services:
        - postgres:/data/postgres
     ports:
       #- "5432:5432"
-      - "5432"
+      - "5433"
     networks:
       #- postgres
       - comonet
@@ -45,7 +45,7 @@ services:
       traefik.http.middlewares.ipwhitelist.ipwhitelist.sourcerange: "${WHITE_LIST}"
     ports:
       #- "${PGADMIN_PORT:-5050}:80"
-      - "80"
+      - ":5050:80"
     networks:
       #- postgres  
       - comonet
