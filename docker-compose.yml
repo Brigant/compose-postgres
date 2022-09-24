@@ -15,7 +15,7 @@ services:
       - "traefik.tcp.routers.postgres.entryPoints=postgres"
       - "traefik.tcp.routers.postgres.service=postgres"
       # services (needed for TCP)
-      - "traefik.tcp.services.postgres.loadbalancer.server.port=5432"
+      - "traefik.tcp.services.postgres.loadbalancer.server.port=5433"
     volumes:
        - postgres:/data/postgres
     ports:
