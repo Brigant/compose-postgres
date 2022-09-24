@@ -29,9 +29,9 @@ services:
     labels:
       traefik.enable: true
       traefik.docker.network: "comonet"
-      traefik.http.routers.pgadmin.entrypoints: "websecure" 
-      traefik.http.routers.pgadmin.rule: "${PGADMIN_HOST:-example.com}"
-      traefik.http.routers.pgadmin.service: "pgadmin"
+      traefik.http.routers.pgadmin-postgres.entrypoints: "websecure" 
+      traefik.http.routers.pgadmin-postgres.rule: "${PGADMIN_HOST:-example.com}"
+      traefik.http.routers.pgadmin-postgres.service: "pgadmin-postgres"
     ports:
       #- "${PGADMIN_PORT:-5050}:80"
       - ":5050:80"
