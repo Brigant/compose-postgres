@@ -18,9 +18,9 @@ services:
       - "traefik.tcp.services.postgres.loadbalancer.server.port=5433"
     volumes:
        - postgres:/data/postgres
-    ports:
+    #ports:
       #- "5432:5432"
-      - "5433"
+      #- "5433"
     networks:
       #- postgres
       - comonet
