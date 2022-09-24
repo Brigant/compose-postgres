@@ -8,6 +8,14 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-ps_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-SimplePass}
       PGDATA: /data/postgres
+    labels:
+      - "traefik.enable=true"
+      # routers
+      - "traefik.tcp.routers.postgres.rule=HostSNI(`*`)"
+      - "traefik.tcp.routers.postgres.entryPoints=postgres"
+      - "traefik.tcp.routers.postgres.service=postgres"
+      # services (needed for TCP)
+      - "traefik.tcp.services.postgres.loadbalancer.server.port=5432"
     volumes:
        - postgres:/data/postgres
     ports:
