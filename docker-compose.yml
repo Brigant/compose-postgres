@@ -32,6 +32,7 @@ services:
       traefik.http.routers.pgadmin-postgres.entrypoints: "websecure" 
       traefik.http.routers.pgadmin-postgres.rule: "${PGADMIN_HOST:-example.com}"
       traefik.http.routers.pgadmin-postgres.service: "pgadmin-postgres"
+      traefik.http.middlewares.test-ipwhitelist.ipwhitelist.sourcerange: "${WHITE_LIST}: -127.0.0.1/32, 192.168.1.7"
     ports:
       #- "${PGADMIN_PORT:-5050}:80"
       - ":5050:80"
